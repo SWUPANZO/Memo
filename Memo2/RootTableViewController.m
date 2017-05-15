@@ -10,12 +10,15 @@
 #import "DetailViewController.h"
 #import <CoreData/CoreData.h>
 
+@import Firebase;
+
 @interface RootTableViewController ()
 
 @end
 
 @implementation RootTableViewController
 @synthesize memos;
+
 
 // managed object context를 조회하거나 나중에 자료를 저장하기 위한 다양한 용도에 쓰임
 - (NSManagedObjectContext *) managedObjectContext {
@@ -35,6 +38,7 @@
     
     memos = [[moc executeFetchRequest:fetchRequest error:nil] mutableCopy];
     [self.tableView reloadData];
+    
 }
 
 
@@ -75,6 +79,7 @@
     
     
     return cell;
+    
 
 
 }
@@ -134,8 +139,12 @@ forRowAtIndexPath:(NSIndexPath *)indexPath {
         NSManagedObject *selectedMemo = [memos objectAtIndex:indexPath.row];
         DetailViewController *destVC = segue.destinationViewController;
         destVC.detailMemo = selectedMemo;
+        
+        
     }
+    
 }
+
 
 
 @end

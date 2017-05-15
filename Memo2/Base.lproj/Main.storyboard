@@ -50,7 +50,7 @@
                     <navigationItem key="navigationItem" title="MEMO" id="lXX-Eo-fCz">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="jMM-ZR-u47">
                             <connections>
-                                <segue destination="mlr-Tt-qV3" kind="show" id="Nzw-LW-BcY"/>
+                                <segue destination="mlr-Tt-qV3" kind="show" identifier="" id="Nzw-LW-BcY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -78,8 +78,8 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BlN-pL-L6A">
-                                <rect key="frame" x="40" y="132" width="240" height="302"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="입력해주세요." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="s6H-l9-z1w">
+                                <rect key="frame" x="40" y="153" width="240" height="286"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -96,7 +96,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="textMemo" destination="BlN-pL-L6A" id="7cl-eD-Bup"/>
+                        <outlet property="textMemo" destination="s6H-l9-z1w" id="N5h-nB-LGt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xPd-A8-nUp" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -121,12 +121,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="tkF-xq-EJ9">
-                                <rect key="frame" x="40" y="111" width="240" height="231"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="저장일자" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSV-jk-DwH">
                                 <rect key="frame" x="21" y="366" width="59" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -138,13 +132,18 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jaz-xr-KDJ">
+                                <rect key="frame" x="40" y="139" width="240" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="saveDate" destination="c94-dA-btQ" id="zXI-FC-LIm"/>
-                        <outlet property="textMemo" destination="tkF-xq-EJ9" id="S3w-Mv-4b1"/>
+                        <outlet property="textMemo" destination="jaz-xr-KDJ" id="fh3-YI-c7Y"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e7L-32-E8D" userLabel="First Responder" sceneMemberID="firstResponder"/>

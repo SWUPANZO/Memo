@@ -7,6 +7,7 @@
 //
 
 #import "SaveViewController.h"
+
 #import <CoreData/CoreData.h>
 
 
@@ -16,6 +17,9 @@
 
 @implementation SaveViewController
 @synthesize textMemo;
+@synthesize ref;
+@synthesize handle;
+
 
 
 - (BOOL) textFieldShouldReturn: (UITextField *) textField {
@@ -26,6 +30,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+       ref = [[FIRDatabase database] reference];
+    
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,6 +50,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {
     NSManagedObjectContext *context =nil;
@@ -61,7 +73,38 @@
     if (![context save:&error]) {
         NSLog(@"Save Failed! %@ %@", error, [error localizedDescription]); }
     // 이전 화면으로 복귀
-    [self.navigationController popViewControllerAnimated:YES]; }  //화면이 싹 사라지면서 테이블뷰가 보여야함
+    [self.navigationController popViewControllerAnimated:YES];
+    
+   // NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    //[formatter setDateFormat:@"yyyymmdd"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterMediumStyle];
+    NSDate *date = [NSDate date];
+    NSString *formattedDateString = [dateFormatter stringFromDate:date];
+    
+    NSString *textvalue = [NSString stringWithFormat:@"%@",textMemo.text];
+    NSMutableDictionary *diction = [[NSMutableDictionary alloc]init];
+    [diction setValue:textvalue forKey:formattedDateString];
+    
+    NSLog(@"diction : %@", diction);
+    [[[ref child:@"student/01" ]child : formattedDateString] setValue:diction];
+
+    
+}//화면이 싹 사라지면서 테이블뷰가 보여야함
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @end

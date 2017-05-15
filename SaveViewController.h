@@ -7,9 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@import Firebase;
 
-@interface SaveViewController : UIViewController <UITextFieldDelegate>
+@interface SaveViewController : UIViewController <UITextFieldDelegate>{
+NSArray *array;
+}
+
 @property (strong, nonatomic) IBOutlet UITextView *textMemo;
+@property (strong, nonatomic) FIRDatabaseReference *ref;
+@property (strong, nonatomic) FIRAuth *handle;
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender;
 - (BOOL) textFieldShouldReturn:(UITextField *)textField;
